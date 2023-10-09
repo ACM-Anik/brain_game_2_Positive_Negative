@@ -81,7 +81,6 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     "src": `${m_asset_path}/bg.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
-
                                         mArtBox_evnt.add_svg({
                                             "w": `5.3vw`,
                                             "h": `6vh`,
@@ -103,6 +102,255 @@ let mGameRenderer = (data = {}, mDOM) => {
                                 // v.e.style.display= `none`;
                                 // v.e.remove();
                                 // }, 1000);
+
+
+                                // Garland of positive and negative(except one negative sign):--
+                                mArtBox_evnt.add_svg({
+                                    "w": `100vw`,
+                                    "h": `100vh`,
+                                    "x": 0,
+                                    "y": 0,
+                                    "e": mE,
+                                    "src": `${m_asset_path}/garland_of_pos_neg.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        mArtBox_evnt.add_svg({ //one neg sign:- to move down
+                                            "w": `5vw`,
+                                            "h": `2vh`,
+                                            "x": 20,
+                                            "y": 81.5,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/negative.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+                                                setTimeout(() => {
+                                                    anime({
+                                                        targets: v.e,
+                                                        translateX: [-70, 0],
+                                                        translateY: [-280, 0],
+                                                        duration: 500,
+                                                        easing: 'linear'
+                                                    });
+                                                }, 2500);
+
+                                            }
+                                        });//------
+
+                                        mArtBox_evnt.add_svg({ //one neg sign:- to move above
+                                            "w": `5vw`,
+                                            "h": `2vh`,
+                                            "x": 20,
+                                            "y": 81.5,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/negative.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+                                                v.e.style.zIndex = "100";
+                                                setTimeout(() => {
+                                                    anime({
+                                                        targets: v.e,
+                                                        translateX: 440,
+                                                        translateY: -100,
+                                                        duration: 500,
+                                                        easing: 'linear'
+                                                    });
+                                                }, 2500);
+
+                                            }
+                                        });//--------
+
+                                        mArtBox_evnt.add_svg({ //one pos sign:- to move down
+                                            "w": `4vw`,
+                                            "h": `5vh`,
+                                            "x": 70,
+                                            "y": 19,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/positive.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+                                                setTimeout(() => {
+                                                    anime({
+                                                        targets: v.e,
+                                                        translateX: 200,
+                                                        translateY: 200,
+                                                        duration: 500,
+                                                        easing: 'linear'
+                                                    });
+                                                }, 2500);
+
+                                            }
+                                        });//-------
+
+                                        mArtBox_evnt.add_svg({ //one pos sign:- to move above
+                                            "w": `4vw`,
+                                            "h": `5vh`,
+                                            "x": 91,
+                                            "y": 52,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/positive.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+                                                setTimeout(() => {
+                                                    anime({
+                                                        targets: v.e,
+                                                        translateX: -200,
+                                                        translateY: -200,
+                                                        duration: 500,
+                                                        easing: 'linear'
+                                                    });
+                                                }, 2500);
+                                            }
+                                        }); //-------
+                                    }
+                                });
+                                //-------|
+
+                                // Quiz:--
+                                mArtBox_evnt.add_svg({ // Question container
+                                    "w": `41vw`,
+                                    "h": `18vh`,
+                                    "x": 31,
+                                    "y": 28,
+                                    "e": mE,
+                                    "src": `${m_asset_path}/ques_container.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        v.e.style.opacity = "0";
+                                        v.e.style.zIndex = "0";
+                                        setTimeout(() => {
+                                            anime({
+                                                opacity: 1,
+                                                targets: v.e,
+                                                scale: [110, 1],
+                                                duration: 1000,
+                                                easing: 'spring(1, 80, 10, 0)',
+                                            });
+                                        }, 0);
+
+                                        mArtBox_evnt.add_svg({ // Ques. text
+                                            "w": `25vw`,
+                                            "h": `12vh`,
+                                            "x": 40,
+                                            "y": 33,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/ques_text.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+                                                v.e.style.opacity = "0";
+                                                setTimeout(() => {
+                                                    anime({
+                                                        opacity: 1,
+                                                        targets: v.e,
+                                                        duration: 600,
+                                                        easing: 'linear'
+                                                    });
+                                                }, 1500);
+                                            }
+                                        });//-----
+
+                                        setTimeout(() => { // Option Circle 1
+                                            mArtBox_evnt.add_svg({
+                                                "w": `13vw`,
+                                                "h": `20vh`,
+                                                "x": 32,
+                                                "y": 57,
+                                                "e": mE,
+                                                "src": `${m_asset_path}/option_circle_1.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    v.e.style.opacity = "0";
+                                                    v.e.style.cursor = "pointer";
+                                                    setTimeout(() => {
+                                                        anime({
+                                                            opacity: 1,
+                                                            targets: v.e,
+                                                            duration: 600,
+                                                            easing: 'linear'
+                                                        });
+                                                    }, 100);
+                                                    setTimeout(() => {
+                                                        mArtBox_evnt.add_svg({
+                                                            "w": `4.5vw`,
+                                                            "h": `5.5vh`,
+                                                            "x": 36.5,
+                                                            "y": 65,
+                                                            "e": mE,
+                                                            "src": `${m_asset_path}/positive.svg`
+                                                        }, {
+                                                            "onLoad": (v = {}) => {
+                                                                v.e.style.opacity = "0";
+                                                                v.e.style.zIndex = "100";
+                                                                anime({
+                                                                    opacity: 1,
+                                                                    targets: v.e,
+                                                                    duration: 600,
+                                                                    easing: 'linear'
+                                                                });
+                                                            }
+                                                        });
+                                                    }, 1000);//------
+                                                },
+                                                "onClick": (v = {}) => {
+                                                    mArtBox_evnt.add_svg({
+                                                        "w": `13vw`,
+                                                        "h": `20vh`,
+                                                        "x": 32,
+                                                        "y": 57,
+                                                        "e": mE,
+                                                        "src": `${m_asset_path}/green.svg`
+                                                    },{
+                                                        "onLoad": (v = {}) => {
+                                                            v.e.style.zIndex = "10";
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        }, 2000);
+
+                                        setTimeout(() => { // Option Circle 2
+                                            mArtBox_evnt.add_svg({
+                                                "w": `13vw`,
+                                                "h": `20vh`,
+                                                "x": 58,
+                                                "y": 57,
+                                                "e": mE,
+                                                "src": `${m_asset_path}/option_circle_2.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    v.e.style.opacity = "0";
+                                                    v.e.style.cursor = "pointer";
+                                                    setTimeout(() => {
+                                                        anime({
+                                                            opacity: 1,
+                                                            targets: v.e,
+                                                            duration: 600,
+                                                            easing: 'linear'
+                                                        });
+                                                    }, 100);
+                                                },
+                                                "onClick": (v = {}) => {
+                                                    mArtBox_evnt.add_svg({
+                                                        "w": `13vw`,
+                                                        "h": `20vh`,
+                                                        "x": 58,
+                                                        "y": 57,
+                                                        "e": mE,
+                                                        "src": `${m_asset_path}/red.svg`
+                                                    },{
+                                                        "onLoad": (v = {}) => {
+                                                            v.e.style.zIndex = "10";
+                                                            v.e.style.disabled = "true";
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        }, 2000);//------
+
+                                    }
+                                });
+                                //------------|
+
+
 
                                 // on_scr_end..
                                 let on_scr_end = () => {
