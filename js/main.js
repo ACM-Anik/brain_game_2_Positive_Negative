@@ -74,22 +74,35 @@ let mGameRenderer = (data = {}, mDOM) => {
                             //set..
                             let mSet = (mE = document.body) => {
 
-                                // Loading:--
                                 mArtBox_evnt.add_svg({
                                     "w": `100vw`,
                                     "h": `100vh`,
                                     "e": mE,
-                                    "src": `${m_asset_path}/loading/loading_0.svg`
+                                    "src": `${m_asset_path}/bg.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
-                                        setTimeout(() => {
-                                            // v.e.style.visibility = `hidden`;
-                                            // v.e.style.display= `none`;
-                                            v.e.remove();
-                                        }, 600);
+
+                                        mArtBox_evnt.add_svg({
+                                            "w": `5.3vw`,
+                                            "h": `6vh`,
+                                            "x": 4,
+                                            "y": 76,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/little_square.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+
+                                            }
+                                        });
                                     }
                                 });
 
+
+                                // setTimeout(() => {
+                                // v.e.style.visibility = `hidden`;
+                                // v.e.style.display= `none`;
+                                // v.e.remove();
+                                // }, 1000);
 
                                 // on_scr_end..
                                 let on_scr_end = () => {
@@ -131,7 +144,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                             //set..
                             let mSet = (mE = document.body) => {
 
-                                
+
                                 // on_scr_end..
                                 let on_scr_end = () => {
                                     mScr.remove();
@@ -172,7 +185,7 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                             //set..
                             let mSet = (mE = document.body) => {
-                                
+
                                 // -------------|
 
                                 // on_scr_end..
@@ -228,7 +241,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                             //set..
                             let mSet = (mE = document.body) => {
                                 // :--
-                                
+
                             };
 
                             // on_scr_end..
@@ -280,7 +293,7 @@ let mGameRenderer = (data = {}, mDOM) => {
 
     // //mStart..
     let mStart = (mE) => {
-        
+
 
         // let scr_8 = () => {
         //     mDta_main.screens.set(`scr_8`, {
