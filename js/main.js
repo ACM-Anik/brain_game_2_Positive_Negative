@@ -73,7 +73,6 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                             //set..
                             let mSet = (mE = document.body) => {
-
                                 mArtBox_evnt.add_svg({
                                     "w": `100vw`,
                                     "h": `100vh`,
@@ -81,7 +80,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     "src": `${m_asset_path}/bg.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
-
+                            
                                         mArtBox_evnt.add_svg({
                                             "w": `5.3vw`,
                                             "h": `6vh`,
@@ -91,25 +90,59 @@ let mGameRenderer = (data = {}, mDOM) => {
                                             "src": `${m_asset_path}/little_square.svg`
                                         }, {
                                             "onLoad": (v = {}) => {
-
+                                                mArtBox_evnt.add_svg({
+                                                    "w": `60vw`,
+                                                    "h": `50vh`,
+                                                    "x": 20,
+                                                    "y": 25,
+                                                    "e": mE,
+                                                    "position": "relative",
+                                                    "src": `${m_asset_path}/Rectangle_loading_up.svg`
+                                                }, {
+                                                    "onLoad": (v = {}) => {
+                                                        mArtBox_evnt.add_svg({
+                                                            "w": `30vw`,
+                                                            "h": `15vh`,
+                                                            "x": 30,
+                                                            "y": 33,
+                                                            "e": mE,
+                                                            "position": "relative",
+                                                            "src": `${m_asset_path}/POSITIVE.svg`
+                                                        });
+                                                        mArtBox_evnt.add_svg({
+                                                            "w": `30vw`,
+                                                            "h": `15vh`,
+                                                            "x": 40,
+                                                            "y": 45,
+                                                            "e": mE,
+                                                            "position": "relative",
+                                                            "src": `${m_asset_path}/NEGATIVE.svg`
+                                                        });
+                                                        mArtBox_evnt.add_svg({
+                                                            "w": `25vw`,
+                                                            "h": `13vh`,
+                                                            "x": 38,
+                                                            "y": 59,
+                                                            "e": mE,
+                                                            "position": "relative",
+                                                            "src": `${m_asset_path}/newgame-button.svg`
+                                                        });
+                                                    }
+                                                }, {
+                                                    "onLoad": (v = {}) => {
+                                                       
+                                                    }
+                                                });
                                             }
                                         });
                                     }
                                 });
-
-
-                                // setTimeout(() => {
-                                // v.e.style.visibility = `hidden`;
-                                // v.e.style.display= `none`;
-                                // v.e.remove();
-                                // }, 1000);
-
-                                // on_scr_end..
+                            
                                 let on_scr_end = () => {
-                                    //send cb..
                                     mSendCB(`on_scr_end`, {});
                                 };
                             };
+                            
 
                             mSet(mScr);
                         }
