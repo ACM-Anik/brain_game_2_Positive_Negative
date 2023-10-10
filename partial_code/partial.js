@@ -129,7 +129,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                 });//------
 
                                 mArtBox_evnt.add_svg({ //one neg sign:- to move above
-                                    "w": `5vw`,
+                                    "w": `4.5vw`,
                                     "h": `2vh`,
                                     "x": 20,
                                     "y": 81.5,
@@ -140,8 +140,8 @@ let mGameRenderer = (data = {}, mDOM) => {
                                         setTimeout(() => {
                                             anime({
                                                 targets: v.e,
-                                                translateX: 440,
-                                                translateY: -100,
+                                                translateX: 434,
+                                                translateY: -105,
                                                 duration: 500,
                                                 easing: 'linear'
                                             });
@@ -438,7 +438,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     "x": 0,
                                     "y": 0,
                                     "e": mE,
-                                    "src": `${m_asset_path}/garland_of_pos_neg.svg`
+                                    "src": `${m_asset_path}/garland_2_neg_less.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
                                         mArtBox_evnt.add_svg({ //one neg sign:- to move top left
@@ -504,9 +504,6 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     }
                                 });
 
-
-
-
                                 // Congrats Plate:--
                                 mArtBox_evnt.add_svg({
                                     "w": `72vw`,
@@ -557,11 +554,9 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                                 // on_scr_end..
                                 let on_scr_end = () => {
-                                    mScr.remove();
                                     //send cb..
                                     mSendCB(`on_scr_end`, {});
                                 };
-
                             };
                             mSet(mScr);
                         }
@@ -726,7 +721,6 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                                 // on_scr_end..
                                 let on_scr_end = () => {
-                                    mScr.remove();
                                     //send cb..
                                     mSendCB(`on_scr_end`, {});
                                 };
@@ -994,7 +988,7 @@ let mGameRenderer = (data = {}, mDOM) => {
             });
         };
 
-        mDta_main.screens.set(`scr_2_2`, {
+        mDta_main.screens.set(`scr_1`, {
             "e": mE, //Html-Element
             "value": {
                 //here you can assign your variable based on your requirements..
@@ -1003,12 +997,12 @@ let mGameRenderer = (data = {}, mDOM) => {
                 "cb": {
                     "on_scr_end": (p = {}) => {
                         // console.log(p.scr);
-                        // if (p.scr == true) {
-                        //     scr_2_1();
-                        // }
-                        // else if (p.scr == false) {
-                        //     scr_2_2();
-                        // }
+                        if (p.scr == true) {
+                            scr_2_1();
+                        }
+                        else if (p.scr == false) {
+                            scr_2_2();
+                        }
                     },
                 }
 
