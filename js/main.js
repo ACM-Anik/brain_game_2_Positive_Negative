@@ -53,25 +53,19 @@ let mGameRenderer = (data = {}, mDOM) => {
                         "set": (k, v, thisItem) => {
                             console.log(thisItem);
                             v["e"].innerHTML = ``; //reset the screen
-
-
-                            // mSendCB..
+                    
                             let mSendCB = (cb_name, p = {}) => {
-                                if (v["value"].hasOwnProperty("cb")) {
-                                    if (v["value"]["cb"].hasOwnProperty(cb_name)) {
-                                        v["value"]["cb"][cb_name](p);
-                                    }
+                                if (v["value"].hasOwnProperty("cb") && v["value"]["cb"].hasOwnProperty(cb_name)) {
+                                    v["value"]["cb"][cb_name](p);
                                 }
                             };
-
-                            //set..
+                    
                             let mScr = document.createElement("div");
                             v["e"].appendChild(mScr);
                             mScr.style.height = `100vh`;
                             mScr.style.width = `100%`;
                             mScr.style.overflow = `hidden`;
-
-                            //set..
+                    
                             let mSet = (mE = document.body) => {
                                 mArtBox_evnt.add_svg({
                                     "w": `100vw`,
@@ -80,16 +74,27 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     "src": `${m_asset_path}/bg.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
+                                        setTimeout(() => {
+                                            anime({
+                                                opacity: 1,
+                                                targets: v.e,
+                                                scale: [0, 1],
+                                                duration: 300,
+                                                easing: 'animate__flip'
+                                            })
+
                                         mArtBox_evnt.add_svg({
                                             "w": `110vw`,
                                             "h": `110vh`,
                                             "x": -10,
                                             "y": -5,
                                             "e": mE,
+                                            "animation": "animate__flip",
                                             "position": "relative",
                                             "src": `${m_asset_path}/+-except.svg`
                                         });
-                            
+                                    }, 500);
+                    
                                         mArtBox_evnt.add_svg({
                                             "w": `5.3vw`,
                                             "h": `6vh`,
@@ -107,11 +112,16 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                     "e": mE,
                                                     "position": "relative",
                                                     "src": `${m_asset_path}/Rectangle_loading_up.svg`
-                                                }, {
+                                                }, 
+                                                  
+                                                {
                                                     "onLoad": (v = {}) => {
+                                                        let aIMicMute = () =>{
+                                                            v.e.style.opacity = "0";
+                                                        }
                                                         mArtBox_evnt.add_svg({
                                                             "w": `30vw`,
-                                                            "h": `15vh`,
+                                                            "h": `12vh`,
                                                             "x": 30,
                                                             "y": 33,
                                                             "e": mE,
@@ -120,13 +130,33 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                         });
                                                         mArtBox_evnt.add_svg({
                                                             "w": `30vw`,
-                                                            "h": `15vh`,
+                                                            "h": `12vh`,
                                                             "x": 40,
                                                             "y": 45,
                                                             "e": mE,
                                                             "position": "relative",
                                                             "src": `${m_asset_path}/NEGATIVE.svg`
                                                         });
+                                                        let mSet = function(mE = document.body) {
+                                                            mArtBox_evnt.add_svg({
+                                                                w: "25vw",
+                                                                h: "13vh",
+                                                                x: 38,
+                                                                y: 59,
+                                                                e: mE,
+                                                                position: "relative",
+                                                                src: m_asset_path + "/newgame-button.svg"
+                                                            }, {
+                                                                onLoad: function(v = {}) {
+                                                                    v.e.style.cursor = "pointer";
+                                                                    v.e.addEventListener("click", function() {
+                                                                        mSendCB("scr_2");
+                                                                    });
+                                                                }
+                                                            });
+                                                        };
+
+                                                        
                                                         mArtBox_evnt.add_svg({
                                                             "w": `25vw`,
                                                             "h": `13vh`,
@@ -135,28 +165,35 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                             "e": mE,
                                                             "position": "relative",
                                                             "src": `${m_asset_path}/newgame-button.svg`
+                                                        }, {
+                                                            "onLoad": (v = {}) => {
+                                                                v.e.style.cursor = "pointer";
+                                                            },
+                                                            "onClick": (v = {}) => {
+                                                                v.e.style.display = "none";
+                                                                aIMicMute()
+                                                                v.e.addEventListener("click", function() {
+                                                                    mSendCB("scr_2");
+                                                                });
+                                                            }
                                                         });
                                                     }
-                                                }, {
-                                                    "onLoad": (v = {}) => {
-                                                       
-                                                    }
-                                                });
+                                                }   
+                                                )
                                             }
                                         });
                                     }
                                 });
-                            
+                    
                                 let on_scr_end = () => {
                                     mSendCB(`on_scr_end`, {});
                                 };
                             };
-                            
-
+                    
                             mSet(mScr);
                         }
-                    },
-
+                    }
+                ,                    
                     // Screen-2 -----------------------------
                     {
                         "name": "Screen 2",
@@ -184,20 +221,31 @@ let mGameRenderer = (data = {}, mDOM) => {
 
 
                             //set..
-                            let mSet = (mE = document.body) => {
-
-
-                                // on_scr_end..
-                                let on_scr_end = () => {
-                                    mScr.remove();
-                                    //send cb..
-                                    mSendCB(`on_scr_end`, {});
-                                };
-
-                            };
+                         
+                            mArtBox_evnt.add_svg({
+                                "w": `100vw`,
+                                "h": `100vh`,
+                                "e": mE,
+                                "src": `${m_asset_path}/bg.svg`
+                            }, {
+                                "onLoad": (v = {}) => {
+                                    mArtBox_evnt.add_svg({
+                                        "w": `110vw`,
+                                        "h": `110vh`,
+                                        "x": -10,
+                                        "y": -5,
+                                        "e": mE,
+                                        "animation": "animate__flip",
+                                        "position": "relative",
+                                        "src": `${m_asset_path}/+-except.svg`
+                                    });
+                
+                                }
+                            });
                             mSet(mScr);
                         }
                     },
+,
 
                     // Screen-3 -----------------------------
                     {
@@ -435,7 +483,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                     //callback..
                     "cb": {
                         "on_scr_end": (p = {}) => {
-                            scr_3();
+                            // scr_3();
                         },
                     }
                 }
@@ -450,7 +498,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                 //callback..
                 "cb": {
                     "on_scr_end": (p = {}) => {
-                        // scr_2();
+                        scr_2();
                     },
                 }
 
