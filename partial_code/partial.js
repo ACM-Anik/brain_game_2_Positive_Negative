@@ -628,7 +628,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     "x": 0,
                                     "y": 0,
                                     "e": mE,
-                                    "src": `${m_asset_path}/garland_of_pos_neg.svg`
+                                    "src": `${m_asset_path}/garland_2_neg_less.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
                                         mArtBox_evnt.add_svg({ //one neg sign:- to move top left
@@ -712,7 +712,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                             "w": `30vw`,
                                             "h": `30vh`,
                                             "x": 36,
-                                            "y": 35,
+                                            "y": 35.5,
                                             "e": mE,
                                             "src": `${m_asset_path}/try_again_text.svg`
                                         }, {
