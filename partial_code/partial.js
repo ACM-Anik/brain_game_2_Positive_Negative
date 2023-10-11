@@ -103,7 +103,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     "x": 0,
                                     "y": 0,
                                     "e": mE,
-                                    "src": `${m_asset_path}/garland_of_pos_neg.svg`
+                                    "src": `${m_asset_path}/garland_2_pos_1_neg_less.svg`
                                 });
 
                                 mArtBox_evnt.add_svg({ //one neg sign:- to move down
