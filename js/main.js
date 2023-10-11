@@ -332,12 +332,12 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                     // Screen-3 -----------------------------
                     // {
-                    //     "name": "Screen 1",
-                    //     "key": "scr_1",
+                    //     "name": "Screen 3",
+                    //     "key": "scr_3",
                     //     "set": (k, v, thisItem) => {
                     //         console.log(thisItem);
-                    //         v["e"].innerHTML = ``; 
-                    //         console.log(v["e"]);
+                    //         //--reset--// [START]
+                    //         v["e"].innerHTML = ``; //reset
 
                     //         //mSendCB..
                     //         let mSendCB = (cb_name, p = {}) => {
@@ -352,405 +352,103 @@ let mGameRenderer = (data = {}, mDOM) => {
                     //         //set..
                     //         let mScr = document.createElement("div");
                     //         v["e"].appendChild(mScr);
-                    //         mScr.style.height = `100%`;
+                    //         mScr.style.height = `100vh`;
                     //         mScr.style.width = `100%`;
-                    //         mScr.style.overflow = `hidden`;
+                    //         mScr.style.position = "relative";
 
+                    //         // Array of image sources
+                    //         let imageSources = [
+                    //             `${m_asset_path}/about_bg.svg`,
+                    //             `${m_asset_path}/about1.svg`,
+                    //             `${m_asset_path}/about2.svg`,
+                    //             `${m_asset_path}/about3.svg`,
+                    //         ];
+                    //         let imageSources2 = [
+                    //             `${m_asset_path}/about1.svg`,
+                    //             `${m_asset_path}/about2.svg`,
+                    //             `${m_asset_path}/about3.svg`,
+                    //         ];
 
-                    //         //set..
-                    //         let mSet = (mE = document.body) => {
+                    //         // Counter to keep track of the current image
+                    //         let currentImageIndex = 0;
 
+                    //         // Function to add an image to the screen
+                    //         let addImage = () => {
+                    //             // Check if it's the first image
+                    //             let isFirstImage = currentImageIndex === 1;
 
-                    //             // 
                     //             mArtBox_evnt.add_svg({
                     //                 "w": `100vw`,
                     //                 "h": `100vh`,
-                    //                 // "x": 30,
-                    //                 // "y": 30,  
-                    //                 "e": mE,
-                    //                 "src": `${m_asset_path}/about.svg`
+                    //                 "e": mScr,
+                    //                 "src": imageSources[currentImageIndex],
+                    //                 "style": isFirstImage ? "position: absolute; top: 0; left: 0; z-index: -1;" : "" // Add this line for styling
                     //             }, {
                     //                 "onLoad": (v = {}) => {
-                    //                     console.log(v.e);
-                    //                     v.e.style.opacity = `0`;
-                    //                     v.e.style.display = `flex`;
-                    //                     v.e.style.justifyContent = `center`;
-                    //                     v.e.style.alignItems = `center`;
-                    //                     v.e.style.marginTop = `0vh`;
+                    //                     if (currentImageIndex <= 5) {
+                    //                         mArtBox_evnt.add_svg({
+                    //                             "w": `52vw`,
+                    //                             "h": `40vh`,
+                    //                             "x": 26,
+                    //                             "y": 45,
+                    //                             "e": mScr,
+                    //                             "src": imageSources2[currentImageIndex]
+                    //                         }, {
+                    //                             "onLoad": (v = {}) => {
+                    //                                 setTimeout(() => {
+                    //                                     // console.log(currentImageIndex, imageSources2.length);
+                    //                                     if (currentImageIndex <= 4) {
+                                                            
+                    //                                         mArtBox_evnt.add_animation({
+                    //                                         "e":v.e,
+                    //                                         "type":"animate__fadeOut"
+                                                            
+                    //                                     });
+                    //                                     setTimeout(() =>{
+                    //                                         v.e.remove();
+                    //                                     },100)
+                                                        
+                    //                                     }
 
-                    //                     setTimeout(() => {
-                    //                         anime({
-                    //                             opacity: 1,
-                    //                             targets: v.e,
-                    //                             scale: [0, 1],
-                    //                             duration: 1500,
-                    //                             direction: 'alternate',
-                    //                             easing: 'easeOutExpo',
-                    //                             loop: false
+                    //                                     currentImageIndex++;
+                    //                                     addImage(); // Add the next image
+                    //                                 }, 1500); // Set the duration here (in milliseconds)
+                    //                             }
                     //                         });
-                    //                     }, 1000);
-
-                    //                     anime({
-                    //                         targets: v.e,
-                    //                         scale: [1, 0],
-                    //                         duration: 1000,
-                    //                         direction: 'alternate',
-                    //                         easing: 'easeOutQuad',
-                    //                         loop: false
-                    //                     });
-
-                    //                     setTimeout(() => {
-                    //                         console.log(v.e);
-                    //                         v.e.remove();
-                    //                         about();
-                    //                     }, 3000);
-                    //                 },
-
-                    //             });
-
-
-                    //             // About:-
-                    //             let about = () => {
-                    //                 let value = 1;
-
-                    //                 setTimeout(() => {
-                    //                     mArtBox_evnt.add_svg({
-                    //                         "w": `100vw`,
-                    //                         "h": `100vh`,
-                    //                         // "x": 10,
-                    //                         // "y": 10,
-                    //                         "e": mE,
-                    //                         "src": `${m_asset_path}/about1.svg`
-                    //                     }, {
-                    //                         "onLoad": (v = {}) => {
-                    //                             setTimeout(() => {
-                    //                                 // v.e.remove();
-                    //                                 s2();
-                    //                                 v.e.remove();
-                    //                             }, 1000);
-                    //                         }
-                    //                     });
-                    //                 }, 300);
-
-                    //                 let s2 = () => {
-                    //                     mArtBox_evnt.add_svg({
-                    //                         "w": `100vw`,
-                    //                         "h": `100vh`,
-                    //                         // "x": 10,
-                    //                         // "y": 10,
-                    //                         "e": mE,
-                    //                         "src": `${m_asset_path}/about2.svg`
-                    //                     }, {
-                    //                         "onLoad": (v = {}) => {
-                    //                             setTimeout(() => {
-                    //                                 s3();
-                    //                                 v.e.remove();
-                    //                             }, 2000);
-                    //                         }
-                    //                     });
-                    //                 }
-
-                    //                 let s3 = () => {
-                    //                     mArtBox_evnt.add_svg({
-                    //                         "w": `100vw`,
-                    //                         "h": `100vh`,
-                    //                         // "x": 10,
-                    //                         // "y": 10,
-                    //                         "e": mE,
-                    //                         "src": `${m_asset_path}/about3.svg`
-                    //                     }, {
-                    //                         "onLoad": (v = {}) => {
-
-                    //                             setTimeout(() => {
-                    //                                 v.e.remove();
-                    //                                 mSendCB(`on_scr_end`, {});
-                    //                             }, 4000);
-                    //                         }
-                    //                     });
-                    //                 }
-
-
-                    //                 // Btn-skip:--
-                    //                 mArtBox_evnt.add_svg({
-                    //                     "w": `8vw`,
-                    //                     "h": `7vh`,
-                    //                     "x": 80,
-                    //                     "y": 80,
-                    //                     "e": mE,
-                    //                     "src": `${m_asset_path}/skip.svg`
-                    //                 }, {
-                    //                     "onLoad": (v = {}) => {
-                    //                         v.e.style.cursor = "pointer";
-
-                    //                     },
-                    //                     "onClick": (v = {}) => {
-                    //                         // skip(value + 1);
+                    //                     } else {
+                    //                         // All images have been displayed, trigger callback
+                    //                         on_scr_end();
                     //                     }
-                    //                 });
-
-                    //                 let skip = (value) => {
-                    //                     // // console.log(value);
-                    //                     // if (value === 3) {
-                    //                     //     setTimeout(() => {
-                    //                     //         v.e.remove();
-                    //                     //         mSendCB(`on_scr_end`, {});
-                    //                     //     }, 3000);
-                    //                     // }
                     //                 }
-
-                    //             }
-
-
+                    //             });
                     //         };
-                    //         mSet(mScr);
+
+                    //         // Start adding images
+                    //         addImage();
+
+                    //         // on_scr_end..
+                    //         let on_scr_end = () => {
+                    //             let timeline = anime.timeline();
+                    //             timeline.add({
+                    //                 targets: mScr,
+                    //                 opacity: 0,
+                    //                 duration: 3000,
+                    //                 easing: 'easeOutExpo',
+                    //                 update: function (anim) {
+                    //                     if (anim.progress > 0) {
+                    //                         anime.remove(mScr);
+                    //                         mScr.remove();
+                    //                         //send cb..
+                    //                         mSendCB(`on_scr_end`, {});
+                    //                     }
+                    //                 },
+                    //             });
+                    //         };
+                    //         // ---------|
+
                     //     }
                     // },
 
-                    // {
-                    //     "name": "Screen 1",
-                    //     "key": "scr_1",
-                    //     "set": (k, v, thisItem) => {
-                    //         console.log(thisItem);
-                    //         v["e"].innerHTML = ``; 
-                    //         console.log(v["e"]);
-                    
-                    //         // Define a function to handle callback events
-                    //         let mSendCB = (cb_name, p = {}) => {
-                    //             if (v["value"].hasOwnProperty("cb")) {
-                    //                 if (v["value"]["cb"].hasOwnProperty(cb_name)) {
-                    //                     v["value"]["cb"][cb_name](p);
-                    //                 }
-                    //             }
-                    //         };
-                    
-                    //         // Create a container for the screen
-                    //         let mScr = document.createElement("div");
-                    //         v["e"].appendChild(mScr);
-                    //         mScr.style.height = `100%`;
-                    //         mScr.style.width = `100%`;
-                    //         mScr.style.overflow = `hidden`;
-                    
-                    //         // Add the background image
-                    //         mArtBox_evnt.add_svg({
-                    //             "w": `100vw`,
-                    //             "h": `100vh`,
-                    //             "e": mScr,
-                    //             "src": `${m_asset_path}/about_bg.svg`
-                    //         }, {
-                    //             "onLoad": (v = {}) => {
-                    //                     let value = 1;
-    
-                    //                     setTimeout(() => {
-                    //                         mArtBox_evnt.add_svg({
-                    //                             "w": `100vw`,
-                    //                             "h": `100vh`,
-                    //                             // "x": 10,
-                    //                             // "y": 10,
-                    //                             "e": mE,
-                    //                             "src": `${m_asset_path}/about1.svg`
-                    //                         }, {
-                    //                             "onLoad": (v = {}) => {
-                    //                                 setTimeout(() => {
-                    //                                     // v.e.remove();
-                    //                                     s2();
-                    //                                     v.e.remove();
-                    //                                 }, 1000);
-                    //                             }
-                    //                         });
-                    //                     }, 300);
-    
-                    //                     let s2 = () => {
-                    //                         mArtBox_evnt.add_svg({
-                    //                             "w": `100vw`,
-                    //                             "h": `100vh`,
-                    //                             // "x": 10,
-                    //                             // "y": 10,
-                    //                             "e": mE,
-                    //                             "src": `${m_asset_path}/about2.svg`
-                    //                         }, {
-                    //                             "onLoad": (v = {}) => {
-                    //                                 setTimeout(() => {
-                    //                                     s3();
-                    //                                     v.e.remove();
-                    //                                 }, 2000);
-                    //                             }
-                    //                         });
-                    //                     }
-    
-                    //                     let s3 = () => {
-                    //                         mArtBox_evnt.add_svg({
-                    //                             "w": `100vw`,
-                    //                             "h": `100vh`,
-                    //                             // "x": 10,
-                    //                             // "y": 10,
-                    //                             "e": mE,
-                    //                             "src": `${m_asset_path}/about3.svg`
-                    //                         }, {
-                    //                             "onLoad": (v = {}) => {
-    
-                    //                                 setTimeout(() => {
-                    //                                     v.e.remove();
-                    //                                     mSendCB(`on_scr_end`, {});
-                    //                                 }, 4000);
-                    //                             }
-                    //                         });
-                    //                     }
-    
-    
-                    //                     // Btn-skip:--
-                    //                     mArtBox_evnt.add_svg({
-                    //                         "w": `8vw`,
-                    //                         "h": `7vh`,
-                    //                         "x": 80,
-                    //                         "y": 80,
-                    //                         "e": mE,
-                    //                         "src": `${m_asset_path}/skip.svg`
-                    //                     }, {
-                    //                         "onLoad": (v = {}) => {
-                    //                             v.e.style.cursor = "pointer";
-    
-                    //                         },
-                    //                         "onClick": (v = {}) => {
-                    //                             // skip(value + 1);
-                    //                         }
-                    //                     });
-    
-                    //                     let skip = (value) => {
-                    //                         // // console.log(value);
-                    //                         // if (value === 3) {
-                    //                         //     setTimeout(() => {
-                    //                         //         v.e.remove();
-                    //                         //         mSendCB(`on_scr_end`, {});
-                    //                         //     }, 3000);
-                    //                         // }
-                    //                     }
-                    //             }
-                    //         });
-                    //     }
-                    // }
-                    
-                    {
-                        "name": "Screen 1",
-                        "key": "scr_1",
-                        "set": (k, v, thisItem) => {
-                            console.log(thisItem);
-                            //--reset--// [START]
-                            v["e"].innerHTML = ``; //reset
-
-                            //mSendCB..
-                            let mSendCB = (cb_name, p = {}) => {
-                                if (v["value"].hasOwnProperty("cb")) {
-                                    if (v["value"]["cb"].hasOwnProperty(cb_name)) {
-                                        v["value"]["cb"][cb_name](p);
-                                    }
-                                }
-                            };
-
-
-                            //set..
-                            let mScr = document.createElement("div");
-                            v["e"].appendChild(mScr);
-                            mScr.style.height = `100vh`;
-                            mScr.style.width = `100%`;
-                            mScr.style.position = "relative";
-
-                            // Array of image sources
-                            let imageSources = [
-                                `${m_asset_path}/about_bg.svg`,
-                                `${m_asset_path}/about1.svg`,
-                                `${m_asset_path}/about2.svg`,
-                                `${m_asset_path}/about3.svg`,
-                            ];
-                            let imageSources2 = [
-                                `${m_asset_path}/about1.svg`,
-                                `${m_asset_path}/about2.svg`,
-                                `${m_asset_path}/about3.svg`,
-                            ];
-
-                            // Counter to keep track of the current image
-                            let currentImageIndex = 0;
-
-                            // Function to add an image to the screen
-                            let addImage = () => {
-                                // Check if it's the first image
-                                let isFirstImage = currentImageIndex === 1;
-
-                                mArtBox_evnt.add_svg({
-                                    "w": `100vw`,
-                                    "h": `100vh`,
-                                    "e": mScr,
-                                    "src": imageSources[currentImageIndex],
-                                    "style": isFirstImage ? "position: absolute; top: 0; left: 0; z-index: -1;" : "" // Add this line for styling
-                                }, {
-                                    "onLoad": (v = {}) => {
-                                        if (currentImageIndex <= 5) {
-                                            mArtBox_evnt.add_svg({
-                                                "w": `52vw`,
-                                                "h": `40vh`,
-                                                "x": 26,
-                                                "y": 45,
-                                                "e": mScr,
-                                                "src": imageSources2[currentImageIndex]
-                                            }, {
-                                                "onLoad": (v = {}) => {
-                                                    setTimeout(() => {
-                                                        // console.log(currentImageIndex, imageSources2.length);
-                                                        if (currentImageIndex <= 4) {
-                                                            
-                                                            mArtBox_evnt.add_animation({
-                                                            "e":v.e,
-                                                            "type":"animate__fadeOut"
-                                                            
-                                                        });
-                                                        setTimeout(() =>{
-                                                            v.e.remove();
-                                                        },100)
-                                                        
-                                                        }
-
-                                                        currentImageIndex++;
-                                                        addImage(); // Add the next image
-                                                    }, 1500); // Set the duration here (in milliseconds)
-                                                }
-                                            });
-                                        } else {
-                                            // All images have been displayed, trigger callback
-                                            on_scr_end();
-                                        }
-                                    }
-                                });
-                            };
-
-                            // Start adding images
-                            addImage();
-
-                            // on_scr_end..
-                            let on_scr_end = () => {
-                                let timeline = anime.timeline();
-                                timeline.add({
-                                    targets: mScr,
-                                    opacity: 0,
-                                    duration: 3000,
-                                    easing: 'easeOutExpo',
-                                    update: function (anim) {
-                                        if (anim.progress > 0) {
-                                            anime.remove(mScr);
-                                            mScr.remove();
-                                            //send cb..
-                                            mSendCB(`on_scr_end`, {});
-                                        }
-                                    },
-                                });
-                            };
-                            // ---------|
-
-                        }
-                    },
-                    
-                    
-                    
-                    
-                
                     // Screen 4 ---------------------
                     // {
                     //     "name": "Screen 1",
