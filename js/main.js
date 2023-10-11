@@ -696,7 +696,16 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                     setTimeout(() => {
                                                         // console.log(currentImageIndex, imageSources2.length);
                                                         if (currentImageIndex <= 4) {
+                                                            
+                                                            mArtBox_evnt.add_animation({
+                                                            "e":v.e,
+                                                            "type":"animate__fadeOut"
+                                                            
+                                                        });
+                                                        setTimeout(() =>{
                                                             v.e.remove();
+                                                        },100)
+                                                        
                                                         }
 
                                                         currentImageIndex++;
