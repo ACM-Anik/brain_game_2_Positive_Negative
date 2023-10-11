@@ -81,7 +81,6 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     "src": `${m_asset_path}/bg.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
-
                                         mArtBox_evnt.add_svg({
                                             "w": `5.3vw`,
                                             "h": `6vh`,
