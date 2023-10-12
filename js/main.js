@@ -354,7 +354,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                             mScr.style.width = `100%`;
                             mScr.style.position = "relative";
 
-                            // Array of image sources
+                            /* // Array of image sources
                             let imageSources = [
                                 `${m_asset_path}/about_bg.svg`,
                                 `${m_asset_path}/about1.svg`,
@@ -393,8 +393,9 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                 "src": imageSources2[currentImageIndex]
                                             }, {
                                                 "onLoad": (v = {}) => {
+
                                                     setTimeout(() => {
-                                                        console.log(currentImageIndex, imageSources2.length);
+                                                        // console.log(currentImageIndex, imageSources2.length);
                                                         if (currentImageIndex <= 4) {
 
                                                             mArtBox_evnt.add_animation({
@@ -404,18 +405,17 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                             });
                                                             setTimeout(() => {
                                                                 v.e.remove();
-                                                            }, 100)
+                                                            }, 100);
 
                                                         }
 
                                                         currentImageIndex++;
-                                                        // addImage(); // Add the next image
+                                                        addImage(); // Add the next image
                                                     }, 1500); // Set the duration here (in milliseconds)
                                                 }
                                             });
                                         } else {
                                             // All images have been displayed, trigger callback
-                                            mSendCB(`on_scr_end`, {});
                                         }
                                     }
                                 });
@@ -423,11 +423,107 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                             // Start adding images
                             addImage();
+                            */
+                            // Code of A. Dutta above-----||
+                            // ---------------------------//
 
+                            let mSet = (mE = document.body) => {
+                                mArtBox_evnt.add_svg({
+                                    "w": `100vw`,
+                                    "h": `100vh`,
+                                    "e": mE,
+                                    "src": `${m_asset_path}/about_bg.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        mArtBox_evnt.add_svg({
+                                            "w": `52vw`,
+                                            "h": `40vh`,
+                                            "x": 26,
+                                            "y": 45,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/about1.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+                                                mArtBox_evnt.add_animation({
+                                                    "e": v.e,
+                                                    "type": "animate__fadeIn"
+                                                });
 
+                                                setTimeout(() => {
+                                                    mArtBox_evnt.add_animation({
+                                                        "e": v.e,
+                                                        "type": "animate__fadeOut"
+                                                    });
+                                                    setTimeout(() => {
+                                                        v.e.style.display = 'none';
+                                                    }, 100);
+                                                }, 900);
+                                            }
+                                        });
 
-                            // ---------|
+                                        setTimeout(() => {
+                                            mArtBox_evnt.add_svg({
+                                                "w": `52vw`,
+                                                "h": `40vh`,
+                                                "x": 26,
+                                                "y": 45,
+                                                "e": mE,
+                                                "src": `${m_asset_path}/about2.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    mArtBox_evnt.add_animation({
+                                                        "e": v.e,
+                                                        "type": "animate__fadeIn"
+                                                    });
 
+                                                    setTimeout(() => {
+                                                        mArtBox_evnt.add_animation({
+                                                            "e": v.e,
+                                                            "type": "animate__fadeOut"
+                                                        });
+                                                        setTimeout(() => {
+                                                            v.e.style.display = 'none';
+                                                        }, 100);
+                                                    }, 900);
+                                                }
+                                            });
+    
+                                        }, 1000);
+
+                                        setTimeout(() => {
+                                            mArtBox_evnt.add_svg({
+                                                "w": `52vw`,
+                                                "h": `40vh`,
+                                                "x": 26,
+                                                "y": 45,
+                                                "e": mE,
+                                                "src": `${m_asset_path}/about3.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    mArtBox_evnt.add_animation({
+                                                        "e": v.e,
+                                                        "type": "animate__fadeIn"
+                                                    });
+
+                                                    setTimeout(() => {
+                                                        mArtBox_evnt.add_animation({
+                                                            "e": v.e,
+                                                            "type": "animate__fadeOut"
+                                                        });
+                                                        setTimeout(() => {
+                                                            // v.e.style.display = 'none';
+                                                            mSendCB(`on_scr_end`, {});
+                                                        }, 100);
+                                                    }, 900);
+                                                }
+                                            });
+                                        }, 2000);
+                                    }
+                                });
+                                
+                            }
+
+                            mSet(mScr);
                         }
                     },
 
@@ -481,7 +577,8 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                     let timeline = anime.timeline();
                                                     // timeline.add({
                                                     //     targets: v.e,
-                                                    //     opacity: [1, 0],});
+                                                    //     opacity: [0, 1],});
+
                                                     setTimeout(() => {
                                                         mArtBox_evnt.add_animation({
                                                             "e": v.e,
@@ -744,8 +841,6 @@ let mGameRenderer = (data = {}, mDOM) => {
                             mSet(mScr);
                         }
                     },
-
-
 
 
                     // Screen-5 -----------------------------
