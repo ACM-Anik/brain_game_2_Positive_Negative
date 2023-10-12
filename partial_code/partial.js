@@ -96,12 +96,12 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     }
                                 });
 
-                                // Garland of positive and negative(except one negative sign):--
+                                // Garland of positive and negative(except one negative sign and two positive sign):--
                                 mArtBox_evnt.add_svg({
                                     "w": `100vw`,
                                     "h": `100vh`,
-                                    "x": 0,
-                                    "y": 0,
+                                    "x": -2,
+                                    "y": -5,
                                     "e": mE,
                                     "src": `${m_asset_path}/garland_2_pos_1_neg_less.svg`
                                 });
@@ -110,16 +110,16 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     "w": `5vw`,
                                     "h": `2vh`,
                                     "x": 20,
-                                    "y": 81.5,
+                                    "y": 84,
                                     "e": mE,
-                                    "src": `${m_asset_path}/negative.svg`
+                                    "src": `${m_asset_path}/neg_sign.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
                                         setTimeout(() => {
                                             anime({
                                                 targets: v.e,
-                                                translateX: [-70, 0],
-                                                translateY: [-280, 0],
+                                                translateX: [-110, 0],
+                                                translateY: [-245, 0],
                                                 duration: 500,
                                                 easing: 'linear'
                                             });
@@ -132,16 +132,16 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     "w": `4.5vw`,
                                     "h": `2vh`,
                                     "x": 20,
-                                    "y": 81.5,
+                                    "y": 84,
                                     "e": mE,
-                                    "src": `${m_asset_path}/negative.svg`
+                                    "src": `${m_asset_path}/neg_sign.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
                                         setTimeout(() => {
                                             anime({
                                                 targets: v.e,
-                                                translateX: 434,
-                                                translateY: -105,
+                                                translateX: '42.5vw',
+                                                translateY: -120,
                                                 duration: 500,
                                                 easing: 'linear'
                                             });
@@ -151,19 +151,19 @@ let mGameRenderer = (data = {}, mDOM) => {
                                 });//--------
 
                                 mArtBox_evnt.add_svg({ //one pos sign:- to move down
-                                    "w": `4vw`,
-                                    "h": `5vh`,
+                                    "w": `4.5vw`,
+                                    "h": `5.5vh`,
                                     "x": 70,
                                     "y": 19,
                                     "e": mE,
-                                    "src": `${m_asset_path}/positive.svg`
+                                    "src": `${m_asset_path}/pos_sign.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
                                         setTimeout(() => {
                                             anime({
                                                 targets: v.e,
-                                                translateX: 200,
-                                                translateY: 200,
+                                                translateX: '22vw',
+                                                translateY: '30vh',
                                                 duration: 500,
                                                 easing: 'linear'
                                             });
@@ -172,8 +172,8 @@ let mGameRenderer = (data = {}, mDOM) => {
                                         let changePosition = () => {
                                             anime({
                                                 targets: v.e,
-                                                translateX: -200,
-                                                translateY: -200,
+                                                translateX: '-22vw',
+                                                translateY: '-30vh',
                                                 duration: 500,
                                                 easing: 'linear'
                                             });
@@ -182,19 +182,19 @@ let mGameRenderer = (data = {}, mDOM) => {
                                 });//-------
 
                                 mArtBox_evnt.add_svg({ //one pos sign:- to move above
-                                    "w": `4vw`,
-                                    "h": `5vh`,
-                                    "x": 91,
+                                    "w": `4.5vw`,
+                                    "h": `5.5vh`,
+                                    "x": 92,
                                     "y": 52,
                                     "e": mE,
-                                    "src": `${m_asset_path}/positive.svg`
+                                    "src": `${m_asset_path}/pos_sign.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
                                         setTimeout(() => {
                                             anime({
                                                 targets: v.e,
-                                                translateX: -200,
-                                                translateY: -200,
+                                                translateX: '-20vw',
+                                                translateY: '-30vh',
                                                 duration: 500,
                                                 easing: 'linear'
                                             });
@@ -203,8 +203,8 @@ let mGameRenderer = (data = {}, mDOM) => {
                                         let changePosition = () => {
                                             anime({
                                                 targets: v.e,
-                                                translateX: 200,
-                                                translateY: 200,
+                                                translateX: '20vw',
+                                                translateY: '30vh',
                                                 duration: 500,
                                                 easing: 'linear'
                                             });
@@ -287,7 +287,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                     "x": 36.5,
                                                     "y": 65,
                                                     "e": mE,
-                                                    "src": `${m_asset_path}/positive.svg`
+                                                    "src": `${m_asset_path}/pos_sign.svg`
                                                 }, {
                                                     "onLoad": (v = {}) => {
                                                         v.e.style.opacity = "0";
@@ -447,7 +447,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                             "x": 12,
                                             "y": 44,
                                             "e": mE,
-                                            "src": `${m_asset_path}/negative.svg`
+                                            "src": `${m_asset_path}/neg_sign.svg`
                                         }, {
                                             "onLoad": (v = {}) => {
                                                 anime({
@@ -477,7 +477,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                             "x": 20,
                                             "y": 81.5,
                                             "e": mE,
-                                            "src": `${m_asset_path}/negative.svg`
+                                            "src": `${m_asset_path}/neg_sign.svg`
                                         }, {
                                             "onLoad": (v = {}) => {
                                                 anime({
@@ -616,7 +616,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                 });
                                 //------
 
-                                // Garland of positive and negative(except one negative sign):--
+                                // Garland of positive and negative(except two negative sign):--
                                 mArtBox_evnt.add_svg({
                                     "w": `100vw`,
                                     "h": `100vh`,
@@ -632,7 +632,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                             "x": 12,
                                             "y": 44,
                                             "e": mE,
-                                            "src": `${m_asset_path}/negative.svg`
+                                            "src": `${m_asset_path}/neg_sign.svg`
                                         }, {
                                             "onLoad": (v = {}) => {
                                                 anime({
@@ -662,7 +662,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                             "x": 20,
                                             "y": 81.5,
                                             "e": mE,
-                                            "src": `${m_asset_path}/negative.svg`
+                                            "src": `${m_asset_path}/neg_sign.svg`
                                         }, {
                                             "onLoad": (v = {}) => {
                                                 anime({
@@ -785,61 +785,6 @@ let mGameRenderer = (data = {}, mDOM) => {
                         }
                     },
 
-                    // Screen-4 -----------------------------
-                    {
-                        "name": "Screen 4",
-                        "key": "scr_4",
-                        "set": (k, v, thisItem) => {
-                            console.log(thisItem);
-                            v["e"].innerHTML = ``; //reset
-
-                            //mSendCB..
-                            let mSendCB = (cb_name, p = {}) => {
-                                if (v["value"].hasOwnProperty("cb")) {
-                                    if (v["value"]["cb"].hasOwnProperty(cb_name)) {
-                                        v["value"]["cb"][cb_name](p);
-                                    }
-                                }
-                            };
-
-
-                            //set..
-                            let mScr = document.createElement("div");
-                            v["e"].appendChild(mScr);
-                            mScr.style.height = `100vh`;
-                            mScr.style.width = `100%`;
-                            mScr.style.overflow = `hidden`;
-
-
-                            //set..
-                            let mSet = (mE = document.body) => {
-                                // :--
-
-                            };
-
-                            // on_scr_end..
-                            let on_scr_end = () => {
-                                let timeline = anime.timeline();
-                                timeline.add({
-                                    targets: mScr,
-                                    opacity: 0,
-                                    duration: 1500,
-                                    easing: 'easeOutExpo',
-                                    update: function (anim) {
-                                        if (anim.progress > 0) {
-                                            anime.remove(mScr);
-                                            mScr.remove();
-                                            //send cb..
-                                            mSendCB(`on_scr_end`, {});
-                                        }
-                                    },
-                                });
-                            };
-
-                            mSet(mScr);
-                        }
-                    },
-
                 ]
             },
 
@@ -866,82 +811,6 @@ let mGameRenderer = (data = {}, mDOM) => {
 
     // //mStart..
     let mStart = (mE) => {
-
-
-        // let scr_8 = () => {
-        //     mDta_main.screens.set(`scr_8`, {
-        //         "e": mE,
-        //         "value": {
-        //             //here you can assign your variable based on your requirements..
-        //             //callback..
-        //             "cb": {
-        //                 "on_scr_end": (p = {}) => {
-        //                     scr_9();
-        //                 },
-        //             }
-        //         }
-        //     });
-        // };
-
-        // let scr_7 = () => {
-        //     mDta_main.screens.set(`scr_7`, {
-        //         "e": mE,
-        //         "value": {
-        //             //here you can assign your variable based on your requirements..
-        //             //callback..
-        //             "cb": {
-        //                 "on_scr_end": (p = {}) => {
-        //                     scr_8();
-        //                 },
-        //             }
-        //         }
-        //     });
-        // };
-
-        // let scr_6 = () => {
-        //     mDta_main.screens.set(`scr_6`, {
-        //         "e": mE,
-        //         "value": {
-        //             //here you can assign your variable based on your requirements..
-        //             //callback..
-        //             "cb": {
-        //                 "on_scr_end": (p = {}) => {
-        //                     scr_7();
-        //                 },
-        //             }
-        //         }
-        //     });
-        // };
-
-        // let scr_5 = () => {
-        //     mDta_main.screens.set(`scr_5`, {
-        //         "e": mE,
-        //         "value": {
-        //             //here you can assign your variable based on your requirements..
-        //             //callback..
-        //             "cb": {
-        //                 "on_scr_end": (p = {}) => {
-        //                     // scr_6();
-        //                 },
-        //             }
-        //         }
-        //     });
-        // };
-
-        // let scr_4 = () => {
-        //     mDta_main.screens.set(`scr_4`, {
-        //         "e": mE,
-        //         "value": {
-        //             //here you can assign your variable based on your requirements..
-        //             //callback..
-        //             "cb": {
-        //                 "on_scr_end": (p = {}) => {
-        //                     scr_5();
-        //                 },
-        //             }
-        //         }
-        //     });
-        // };
 
         let scr_3 = () => {
             mDta_main.screens.set(`scr_3`, {
