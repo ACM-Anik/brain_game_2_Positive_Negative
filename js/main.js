@@ -487,7 +487,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                     }, 900);
                                                 }
                                             });
-    
+
                                         }, 1000);
 
                                         setTimeout(() => {
@@ -520,7 +520,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                         }, 2000);
                                     }
                                 });
-                                
+
                             }
 
                             mSet(mScr);
@@ -558,12 +558,13 @@ let mGameRenderer = (data = {}, mDOM) => {
                             let mSet = (mE = document.body) => {
                                 //set..[Svg]..  
                                 mArtBox_evnt.add_svg({
-                                    "w": `100%`,
+                                    "w": `100vw`,
                                     "h": `100vh`,
                                     "e": mE,
                                     "src": `${m_asset_path}/bg11.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
+
                                         mArtBox_evnt.add_svg({
                                             "w": `65vh`,
                                             "h": `45vh`,
@@ -589,38 +590,40 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                                 targets: v.e,
                                                                 opacity: [1, 0],
                                                             });
-                                                    }, 1000)
-                                                }
-                                            }
-                                        );
-                                        mArtBox_evnt.add_svg({
-                                            "w": `18vh`,
-                                            "h": `10vh`,
-                                            "x": 46.5,
-                                            "y": 42.2,
-                                            "e": mE,
-                                            "src": `${m_asset_path}/GET.svg`
-                                        },
-                                            {
-                                                "onLoad": (v = {}) => {
-                                                    let timeline = anime.timeline();
-                                                    // timeline.add({
-                                                    //     targets: v.e,
-                                                    //     opacity: [1, 0],});
-                                                    setTimeout(() => {
-                                                        mArtBox_evnt.add_animation({
-                                                            "e": v.e,
-                                                            "type": "animate__zoomOut",
+                                                    }, 1000);
 
-                                                        }),
-                                                            timeline.add({
-                                                                targets: v.e,
-                                                                opacity: [1, 0],
-                                                            });
-                                                    }, 1000)
+                                                    mArtBox_evnt.add_svg({
+                                                        "w": `18vh`,
+                                                        "h": `10vh`,
+                                                        "x": 46.5,
+                                                        "y": 42.2,
+                                                        "e": mE,
+                                                        "src": `${m_asset_path}/GET.svg`
+                                                    },
+                                                        {
+                                                            "onLoad": (v = {}) => {
+                                                                let timeline = anime.timeline();
+                                                                // timeline.add({
+                                                                //     targets: v.e,
+                                                                //     opacity: [1, 0],});
+                                                                setTimeout(() => {
+                                                                    mArtBox_evnt.add_animation({
+                                                                        "e": v.e,
+                                                                        "type": "animate__zoomOut",
+
+                                                                    }),
+                                                                        timeline.add({
+                                                                            targets: v.e,
+                                                                            opacity: [1, 0],
+                                                                        });
+                                                                }, 1000)
+                                                            }
+                                                        }
+                                                    );
                                                 }
                                             }
                                         );
+
                                         mArtBox_evnt.add_svg({
                                             "w": `30vh`,
                                             "h": `20vh`,
@@ -642,35 +645,37 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                         v.e.addEventListener('animationend', () => {
                                                             v.e.style.visibility = "hidden";
                                                         });
-                                                    }, 1000)
+                                                    }, 1000);
+
+                                                    mArtBox_evnt.add_svg({
+                                                        "w": `18vh`,
+                                                        "h": `13vh`,
+                                                        "x": 46.8, //45.5
+                                                        "y": 42.5, //37.5
+                                                        "e": mE,
+                                                        "src": `${m_asset_path}/+.svg`
+                                                    },
+                                                        {
+                                                            "onLoad": (v = {}) => {
+                                                                let timeline = anime.timeline();
+                                                                timeline.add({
+                                                                    targets: v.e,
+                                                                    opacity: [1, 0],
+                                                                });
+                                                                setTimeout(() => {
+                                                                    v.e.classList.add("animate__animated", "animate__bounceIn"),
+                                                                        v.e.style.setProperty('--animate-duration', '2s');
+                                                                    v.e.addEventListener('animationend', () => {
+                                                                        v.e.style.visibility = "hidden";
+                                                                    });
+                                                                }, 1000)
+                                                            }
+                                                        }
+                                                    );
                                                 }
                                             }
                                         );
-                                        mArtBox_evnt.add_svg({
-                                            "w": `18vh`,
-                                            "h": `13vh`,
-                                            "x": 46.8, //45.5
-                                            "y": 42.5, //37.5
-                                            "e": mE,
-                                            "src": `${m_asset_path}/+.svg`
-                                        },
-                                            {
-                                                "onLoad": (v = {}) => {
-                                                    let timeline = anime.timeline();
-                                                    timeline.add({
-                                                        targets: v.e,
-                                                        opacity: [1, 0],
-                                                    });
-                                                    setTimeout(() => {
-                                                        v.e.classList.add("animate__animated", "animate__bounceIn"),
-                                                            v.e.style.setProperty('--animate-duration', '2s');
-                                                        v.e.addEventListener('animationend', () => {
-                                                            v.e.style.visibility = "hidden";
-                                                        });
-                                                    }, 1000)
-                                                }
-                                            }
-                                        );
+
                                         mArtBox_evnt.add_svg({
                                             "w": `65vh`,
                                             "h": `45vh`,
@@ -692,35 +697,37 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                         v.e.addEventListener('animationend', () => {
                                                             v.e.classList.add("animate__animated", "animate__zoomOut")
                                                         });
-                                                    }, 2500)
+                                                    }, 2500);
+
+                                                    mArtBox_evnt.add_svg({
+                                                        "w": `18vh`,
+                                                        "h": `10vh`,
+                                                        "x": 46.5,
+                                                        "y": 42.2,
+                                                        "e": mE,
+                                                        "src": `${m_asset_path}/SET.svg`
+                                                    },
+                                                        {
+                                                            "onLoad": (v = {}) => {
+                                                                let timeline = anime.timeline();
+                                                                timeline.add({
+                                                                    targets: v.e,
+                                                                    opacity: [0],
+                                                                });
+                                                                setTimeout(() => {
+                                                                    v.e.classList.add("animate__animated", "animate__bounceIn"),
+                                                                        v.e.style.setProperty('--animate-duration', '2s');
+                                                                    v.e.addEventListener('animationend', () => {
+                                                                        v.e.classList.add("animate__animated", "animate__zoomOut")
+                                                                    });
+                                                                }, 2500)
+                                                            }
+                                                        }
+                                                    );
                                                 }
                                             }
                                         );
-                                        mArtBox_evnt.add_svg({
-                                            "w": `18vh`,
-                                            "h": `10vh`,
-                                            "x": 46.5,
-                                            "y": 42.2,
-                                            "e": mE,
-                                            "src": `${m_asset_path}/SET.svg`
-                                        },
-                                            {
-                                                "onLoad": (v = {}) => {
-                                                    let timeline = anime.timeline();
-                                                    timeline.add({
-                                                        targets: v.e,
-                                                        opacity: [0],
-                                                    });
-                                                    setTimeout(() => {
-                                                        v.e.classList.add("animate__animated", "animate__bounceIn"),
-                                                            v.e.style.setProperty('--animate-duration', '2s');
-                                                        v.e.addEventListener('animationend', () => {
-                                                            v.e.classList.add("animate__animated", "animate__zoomOut")
-                                                        });
-                                                    }, 2500)
-                                                }
-                                            }
-                                        );
+
                                         mArtBox_evnt.add_svg({
                                             "w": `30vh`,
                                             "h": `20vh`,
@@ -742,35 +749,37 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                         v.e.addEventListener('animationend', () => {
                                                             v.e.style.visibility = "hidden";
                                                         });
-                                                    }, 4000)
+                                                    }, 4000);
+
+                                                    mArtBox_evnt.add_svg({
+                                                        "w": `18vh`,
+                                                        "h": `13vh`,
+                                                        "x": 46.8, //45.5
+                                                        "y": 42.5, //37.5
+                                                        "e": mE,
+                                                        "src": `${m_asset_path}/_.svg`
+                                                    },
+                                                        {
+                                                            "onLoad": (v = {}) => {
+                                                                let timeline = anime.timeline();
+                                                                timeline.add({
+                                                                    targets: v.e,
+                                                                    opacity: [1, 0],
+                                                                });
+                                                                setTimeout(() => {
+                                                                    v.e.classList.add("animate__animated", "animate__bounceIn"),
+                                                                        v.e.style.setProperty('--animate-duration', '2s');
+                                                                    v.e.addEventListener('animationend', () => {
+                                                                        v.e.style.visibility = "hidden";
+                                                                    });
+                                                                }, 4000)
+                                                            }
+                                                        }
+                                                    );
                                                 }
                                             }
                                         );
-                                        mArtBox_evnt.add_svg({
-                                            "w": `18vh`,
-                                            "h": `13vh`,
-                                            "x": 46.8, //45.5
-                                            "y": 42.5, //37.5
-                                            "e": mE,
-                                            "src": `${m_asset_path}/_.svg`
-                                        },
-                                            {
-                                                "onLoad": (v = {}) => {
-                                                    let timeline = anime.timeline();
-                                                    timeline.add({
-                                                        targets: v.e,
-                                                        opacity: [1, 0],
-                                                    });
-                                                    setTimeout(() => {
-                                                        v.e.classList.add("animate__animated", "animate__bounceIn"),
-                                                            v.e.style.setProperty('--animate-duration', '2s');
-                                                        v.e.addEventListener('animationend', () => {
-                                                            v.e.style.visibility = "hidden";
-                                                        });
-                                                    }, 4000)
-                                                }
-                                            }
-                                        );
+
                                         mArtBox_evnt.add_svg({
                                             "w": `65vh`,
                                             "h": `45vh`,
@@ -792,37 +801,40 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                         v.e.addEventListener('animationend', () => {
                                                             v.e.classList.add("animate__animated", "animate__zoomOut")
                                                         });
-                                                    }, 5500)
+                                                    }, 5500);
+
+                                                    //Go
+                                                    mArtBox_evnt.add_svg({
+                                                        "w": `18vh`,
+                                                        "h": `10vh`,
+                                                        "x": 46.5,
+                                                        "y": 42.2,
+                                                        "e": mE,
+                                                        "src": `${m_asset_path}/GO!.svg`
+                                                    },
+                                                        {
+                                                            "onLoad": (v = {}) => {
+                                                                let timeline = anime.timeline();
+                                                                timeline.add({
+                                                                    targets: v.e,
+                                                                    opacity: [0],
+                                                                });
+                                                                setTimeout(() => {
+                                                                    v.e.classList.add("animate__animated", "animate__bounceIn"),
+                                                                        v.e.style.setProperty('--animate-duration', '2s');
+                                                                    v.e.addEventListener('animationend', () => {
+                                                                        v.e.classList.add("animate__animated", "animate__zoomOut")
+                                                                    });
+                                                                }, 5500)
+
+                                                            },
+
+                                                        }
+                                                    );
                                                 }
                                             }
                                         );
-                                        mArtBox_evnt.add_svg({
-                                            "w": `18vh`,
-                                            "h": `10vh`,
-                                            "x": 46.5,
-                                            "y": 42.2,
-                                            "e": mE,
-                                            "src": `${m_asset_path}/GO!.svg`
-                                        },
-                                            {
-                                                "onLoad": (v = {}) => {
-                                                    let timeline = anime.timeline();
-                                                    timeline.add({
-                                                        targets: v.e,
-                                                        opacity: [0],
-                                                    });
-                                                    setTimeout(() => {
-                                                        v.e.classList.add("animate__animated", "animate__bounceIn"),
-                                                            v.e.style.setProperty('--animate-duration', '2s');
-                                                        v.e.addEventListener('animationend', () => {
-                                                            v.e.classList.add("animate__animated", "animate__zoomOut")
-                                                        });
-                                                    }, 5500)
 
-                                                },
-
-                                            }
-                                        );
                                         setTimeout(() => {
                                             // // v.e.remove();
                                             // scoreRound1();
@@ -1617,37 +1629,37 @@ let mGameRenderer = (data = {}, mDOM) => {
             });
         };
 
-        // let scr_3 = () => {
-        //     mDta_main.screens.set(`scr_3`, {
-        //         "e": mE,
-        //         "value": {
-        //             //here you can assign your variable based on your requirements..
-        //             //callback..
-        //             "cb": {
-        //                 "on_scr_end": (p = {}) => {
-        //                     scr_4();
-        //                 },
-        //             }
-        //         }
-        //     });
-        // };
+        let scr_3 = () => {
+            mDta_main.screens.set(`scr_3`, {
+                "e": mE,
+                "value": {
+                    //here you can assign your variable based on your requirements..
+                    //callback..
+                    "cb": {
+                        "on_scr_end": (p = {}) => {
+                            scr_4();
+                        },
+                    }
+                }
+            });
+        };
 
-        // let scr_2 = () => {
-        //     mDta_main.screens.set(`scr_2`, {
-        //         "e": mE,
-        //         "value": {
-        //             //here you can assign your variable based on your requirements..
-        //             //callback..
-        //             "cb": {
-        //                 "on_scr_end": (p = {}) => {
-        //                     scr_3();
-        //                 },
-        //             }
-        //         }
-        //     });
-        // };
+        let scr_2 = () => {
+            mDta_main.screens.set(`scr_2`, {
+                "e": mE,
+                "value": {
+                    //here you can assign your variable based on your requirements..
+                    //callback..
+                    "cb": {
+                        "on_scr_end": (p = {}) => {
+                            scr_3();
+                        },
+                    }
+                }
+            });
+        };
 
-        mDta_main.screens.set(`scr_3`, {
+        mDta_main.screens.set(`scr_1`, {
             "e": mE, //Html-Element
             "value": {
                 //here you can assign your variable based on your requirements..
@@ -1655,7 +1667,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                 //callback..
                 "cb": {
                     "on_scr_end": (p = {}) => {
-                        scr_4();
+                        scr_2();
                     },
                 }
 
